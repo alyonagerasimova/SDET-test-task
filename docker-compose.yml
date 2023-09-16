@@ -1,0 +1,15 @@
+version: "3.9"
+name: standalone-chrome-compose
+services:
+  chrome:
+    image: selenium/standalone-chrome:112.0
+    container_name: web-chrome
+    environment:
+      HUB_PORT_4444_TCP_PORT: 4444
+      NODE_MAX_SESSION: 4
+      NODE_MAX_INSTANCES: 4
+    volumes:
+      - ./src/test/resources:/src-res/resources
+    ports:
+      - "4444:4444"
+      - "7900:7900"
