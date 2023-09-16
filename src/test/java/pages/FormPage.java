@@ -18,7 +18,6 @@ public class FormPage extends BaseSeleniumPage {
     public By emailField = By.id("userEmail");
     public By numberField = By.id("userNumber");
     public By dateField = By.id("dateOfBirthInput");
-    public By dayValue = By.xpath("//*[@id='dateOfBirth']//div[text()='28']");
     public By subjectsField = By.id("subjectsInput");
     public By fileInput = By.cssSelector("input[type=file]");
     public By addressField = By.xpath("//*[@id=\"currentAddress\"]");
@@ -59,8 +58,10 @@ public class FormPage extends BaseSeleniumPage {
         return driver.findElement(dateField);
     }
 
-    public WebElement getDay() {
-        return driver.findElement(dayValue);
+    public WebElement getDay(String day) {
+        return driver.findElement(
+                By.xpath("//*[@id='dateOfBirth']//div[text()=" + day + "]")
+        );
     }
 
     public WebElement getSubject() {

@@ -36,7 +36,7 @@ public class FormRegistrationTest extends BaseTest {
                 .runCustomStep("Заполение даты", () -> {
                     steps.click(form.getDateField());
                     form.selectMonthAndYear(Constants.MONTH, Constants.YEAR);
-                    steps.click(form.getDay());
+                    steps.click(form.getDay(Constants.DAY));
                 })
                 .runCustomStep("Выбор предметов", () -> {
                     var subjectsInput = form.getSubject();

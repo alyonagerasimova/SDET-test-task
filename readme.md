@@ -6,7 +6,10 @@ UI-автотесты формы регистрации https://demoqa.com/autom
 `docker build -t standalone-chrome-b .`  
 `docker run -d -p 4444:4444 -p 7900:7900 --shm-size="3g" --name standalone-chrome-b standalone-chrome-b`   
 или через compose    
-`docker-compose up --build -d`   .
+`docker-compose up --build -d`     
+Или напрямую запустить из образа (не рекомендуется - нужно примонтировать текущую папку с ресурсами)
+`docker run -d -p 4444:4444 -p 7900:7900 --shm-size="3g" --name standalone-chrome -v "{absolute path}/src/test/resources:/src-res/resources:ro" selenium/standalone-chrome:4.11.0`
+
 
 Посмотреть как отрабатывает браузер: http://localhost:7900/?autoconnect=1&resize=scale&password=secret    
 Selenium Grid: http://localhost:4444/ui#    
